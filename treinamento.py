@@ -39,8 +39,8 @@ def treinar_automaticamente():
         id_to_info[next_id] = (pasta_nome, nivel)
         image_count = 1
         for arquivo in os.listdir(pasta_path):
-            if not arquivo.lower().endswith(".jpg"):
-                print(f"Ignorando {arquivo} (não é .jpg)")
+            if not (arquivo.lower().endswith(".jpg") or arquivo.lower().endswith(".png")):
+                print(f"Ignorando {arquivo} (não é .jpg ou .png)")
                 continue
             old_img_path = os.path.join(pasta_path, arquivo)
             if any(ord(c) > 127 for c in arquivo):
